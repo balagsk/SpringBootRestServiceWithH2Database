@@ -1,0 +1,44 @@
+{
+	"request":{
+		"adminInfo":{
+				"appId":"GIM",
+				"groupId":"GIADMGRP",
+				"userId":"GIADMUSR001",
+				"password":"#jdhjasd2983420"
+		},
+		"userInfo":{
+				"appId": "GIM",
+				"groupId": "GIUSRGRP",
+				"userId": "GIEXTUSR001",
+				"name": "fname1, sname1",
+				"address": "Bedok Res",
+				"country": "SG",
+				"roleId": "5",
+				"email": "tes1503@gmail.com",
+				"password": "1214524basdjashd",
+		}
+	}
+}
+
+===============================================================
+
+{
+	"response":{
+		"statusCode":{
+				"status":"100",
+				"responseMessage":"Operation Success",
+		},
+		"userInfo":{
+				"appId": "GIM",
+				"groupId": "GIUSRGRP",
+				"userId": "GIEXTUSR001",
+				"name": "fname1, sname1",
+				"address": "Bedok Res",
+				"country": "SG",
+				"roleId": "5",
+				"email": "tes1503@gmail.com",
+				"createdDate": "2019-05-02T03:22:45.088+0000",
+				"modifiedDate": "2019-05-02T03:22:45.088+0000"
+		}
+	}
+}
