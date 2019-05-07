@@ -1,150 +1,129 @@
 package com.sb.rest.app.sbapph2.model;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Entity
-@Table(name="PERSON")
+@Table(name="USER")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
-    private String APPID;
-    private String GROUPID;
-   /*  @TableGenerator(name = "userid",initialValue = 15001500,allocationSize = 1)*/
-    /*@SequenceGenerator(name="userid_seq",initialValue = 10007000,allocationSize = 1)*/
-
- //*   @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "userid_seq")*/
+    private String appId;
+    private String groupId;
     @Id
-    private String USERID;
- /*   @NotNull(message = "Name should not be blank")
-    @Size(min = 5,max = 15,message = "Name should contain min 5 and max 50")*/
-    private String NAME;
-    private String ADDRESS;
-    private String COUNTRY;
-    private String ROLEID;
-  /*  @NotNull(message = "email must be entered")*/
-    private String EMAIL;
-/*    @NotNull(message = "Password should not be blank")
-    @Size(min = 5,max = 8,message = "Password should contain min 5 and max 8")*/
-    private String PASSWORD;
+    private String userId;
+    private String name;
+    private String address;
+    private String country;
+    private String roleId;
+    private String email;
+    private String password;
+    private String createdDate;
+    private String modifiedDate;
 
-   /* @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate*/
-    private String CREATEDDATE;
-
-   /* @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate*/
-    private String MODIFIEDDATE;
-
-    public String getUSERID() {
-        return USERID;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUSERID(String USERID) {
-        this.USERID = USERID;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getCREATEDDATE() {
-        return CREATEDDATE;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCREATEDDATE(String CREATEDDATE) {
-        this.CREATEDDATE = CREATEDDATE;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public String getMODIFIEDDATE() {
-        return MODIFIEDDATE;
+    public String getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setMODIFIEDDATE(String MODIFIEDDATE) {
-        this.MODIFIEDDATE = MODIFIEDDATE;
+    public void setModifiedDate(String modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
 
-    public String getAPPID() {
-        return APPID;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setAPPID(String APPID) {
-        this.APPID = APPID;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getGROUPID() {
-        return GROUPID;
+    public String getGroupId() {
+        return groupId;
     }
 
-    public void setGROUPID(String GROUPID) {
-        this.GROUPID = GROUPID;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
-      public String getNAME() {
-        return NAME;
+      public String getName() {
+        return name;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getADDRESS() {
-        return ADDRESS;
+    public String getAddress() {
+        return address;
     }
 
-    public void setADDRESS(String ADDRESS) {
-        this.ADDRESS = ADDRESS;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getCOUNTRY() {
-        return COUNTRY;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCOUNTRY(String COUNTRY) {
-        this.COUNTRY = COUNTRY;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getROLEID() {
-        return ROLEID;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setROLEID(String ROLEID) {
-        this.ROLEID = ROLEID;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
-    public String getEMAIL() {
-        return EMAIL;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPASSWORD() {
-        return PASSWORD;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "APPID='" + APPID + '\'' +
-                ", GROUPID='" + GROUPID + '\'' +
-                ", USERID='" + USERID + '\'' +
-                ", NAME='" + NAME + '\'' +
-                ", ADDRESS='" + ADDRESS + '\'' +
-                ", COUNTRY='" + COUNTRY + '\'' +
-                ", ROLEID='" + ROLEID + '\'' +
-                ", EMAIL='" + EMAIL + '\'' +
-                ", PASSWORD='" + PASSWORD + '\'' +
-                ", CREATEDDATE='" + CREATEDDATE + '\'' +
-                ", MODIFIEDDATE='" + MODIFIEDDATE + '\'' +
+                "appId='" + appId + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", roleId='" + roleId + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdDate='" + createdDate + '\'' +
+                ", modifiedDate='" + modifiedDate + '\'' +
                 '}';
     }
 }

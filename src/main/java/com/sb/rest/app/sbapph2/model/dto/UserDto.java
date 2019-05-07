@@ -4,160 +4,171 @@ package com.sb.rest.app.sbapph2.model.dto;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.sb.rest.app.sbapph2.model.User;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
 @JsonRootName("userInfo")
 /*@JsonRootName("userInfo")*/
 public class UserDto extends User {
     private static final long serialVersionUID=1L;
-    private String APPID;
-    private String GROUPID;
-    private String USERID;  // PK to Alphanumeric e.g BALAGSK01, BALAGSK02
-    private String NAME;
-    private String ADDRESS;
-    private String COUNTRY;
-    private String ROLEID;
-    private String EMAIL;
-    private String PASSWORD;
-    private String CREATEDDATE; // Change to String
-    private String MODIFIEDDATE;
+    private String appId;
+    private String groupId;
+    private String userId;  // PK to Alphanumeric e.g BALAGSK01, BALAGSK02
+    private String name;
+    private String address;
+    private String country;
+    private String roleId;
+    private String email;
+    private String password;
+    private String createdDate; // Change to String
+    private String modifiedDate;
 
-    public UserDto(String APPID, String GROUPID, String USERID) {
-        this.APPID = APPID;
-        this.GROUPID = GROUPID;
-        this.USERID = USERID;
-
+    public UserDto() {
     }
 
-    public UserDto(){
-
-
+    public UserDto(String appId, String groupId, String userId) {
+        this.appId = appId;
+        this.groupId = groupId;
+        this.userId = userId;
     }
 
-    @Override
-    public String getAPPID() {
-        return APPID;
-    }
-
-    @Override
-    public void setAPPID(String APPID) {
-        this.APPID = APPID;
-    }
-
-    @Override
-    public String getGROUPID() {
-        return GROUPID;
-    }
-
-    @Override
-    public void setGROUPID(String GROUPID) {
-        this.GROUPID = GROUPID;
+    public User UserDto(String appId, String groupId, String userId, String name, String address, String country, String roleId, String email, String password, String createdDate, String modifiedDate) {
+       User user =new User();
+       user.setAppId(appId);
+       user.setGroupId(groupId);
+       user.setUserId(userId);
+       user.setName(name);
+       user.setAddress(address);
+       user.setCountry(country);
+       user.setRoleId(roleId);
+       user.setEmail(email);
+       user.setPassword(password);
+       user.setCreatedDate(createdDate);
+       user.setModifiedDate(modifiedDate);
+       return  user;
     }
 
     @Override
-    public String getUSERID() {
-        return USERID;
+    public String getAppId() {
+        return appId;
     }
 
     @Override
-    public void setUSERID(String USERID) {
-        this.USERID = USERID;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
     @Override
-    public String getNAME() {
-        return NAME;
+    public String getGroupId() {
+        return groupId;
+    }
+
+    @Override
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    @Override
+    public String getUserId() {
+        return userId;
+    }
+
+    @Override
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
 
     @Override
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public String getADDRESS() {
-        return ADDRESS;
+    public String getAddress() {
+        return address;
     }
 
     @Override
-    public void setADDRESS(String ADDRESS) {
-        this.ADDRESS = ADDRESS;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
-    public String getCOUNTRY() {
-        return COUNTRY;
+    public String getCountry() {
+        return country;
     }
 
     @Override
-    public void setCOUNTRY(String COUNTRY) {
-        this.COUNTRY = COUNTRY;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override
-    public String getROLEID() {
-        return ROLEID;
+    public String getRoleId() {
+        return roleId;
     }
 
     @Override
-    public void setROLEID(String ROLEID) {
-        this.ROLEID = ROLEID;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     @Override
-    public String getEMAIL() {
-        return EMAIL;
+    public String getEmail() {
+        return email;
     }
 
     @Override
-    public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
-    public String getPASSWORD() {
-        return PASSWORD;
+    public String getPassword() {
+        return password;
     }
 
     @Override
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
-    public String getCREATEDDATE() {
-        return CREATEDDATE;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
     @Override
-    public void setCREATEDDATE(String CREATEDDATE) {
-        this.CREATEDDATE = CREATEDDATE;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 
     @Override
-    public String getMODIFIEDDATE() {
-        return MODIFIEDDATE;
+    public String getModifiedDate() {
+        return modifiedDate;
     }
 
     @Override
-    public void setMODIFIEDDATE(String MODIFIEDDATE) {
-        this.MODIFIEDDATE = MODIFIEDDATE;
+    public void setModifiedDate(String modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
     @Override
     public String toString() {
         return "UserDto{" +
-                "APPID='" + APPID + '\'' +
-                ", GROUPID='" + GROUPID + '\'' +
-                ", USERID='" + USERID + '\'' +
-                ", NAME='" + NAME + '\'' +
-                ", ADDRESS='" + ADDRESS + '\'' +
-                ", COUNTRY='" + COUNTRY + '\'' +
-                ", ROLEID='" + ROLEID + '\'' +
-                ", EMAIL='" + EMAIL + '\'' +
-                ", PASSWORD='" + PASSWORD + '\'' +
-                ", CREATEDDATE='" + CREATEDDATE + '\'' +
-                ", MODIFIEDDATE='" + MODIFIEDDATE + '\'' +
+                "appId='" + appId + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", country='" + country + '\'' +
+                ", roleId='" + roleId + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdDate='" + createdDate + '\'' +
+                ", modifiedDate='" + modifiedDate + '\'' +
                 '}';
     }
 

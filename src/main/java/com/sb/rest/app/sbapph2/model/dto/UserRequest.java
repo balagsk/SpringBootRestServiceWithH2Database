@@ -1,51 +1,36 @@
 package com.sb.rest.app.sbapph2.model.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.sb.rest.app.sbapph2.model.User;
 
 @JsonRootName("request")
 public class UserRequest {
 private static final long serialVersionUID=1L;
-  /*  public AdminDTO adminInfo;*/
-    public UserDto userInfo;
 
-   /* public UserRequest() {
+    @JsonProperty("client")
+    public User clientInfo;
+    @JsonProperty("userInfo")
+    public User userInfo;
+
+    public UserRequest() {
     }
 
-    public UserRequest(AdminDTO adminInfo) {
-        this.adminInfo = adminInfo;
+    public User getClientInfo() {
+        return clientInfo;
     }
 
-    public User UserRequest(AdminDTO adminInfo) {
-        User user=new User();
-        user.setAPPID(adminInfo.getAPPID());
-        user.setGROUPID(adminInfo.getGROUPID());
-        user.setUSERID(adminInfo.getUSERID());
-        return user;
-    }*/
-
-   /* public AdminDTO getAdminInfo() {
-        return adminInfo;
+    public void setClientInfo(User clientInfo) {
+        this.clientInfo = clientInfo;
     }
 
-    public void setAdminInfo(AdminDTO adminInfo) {
-        this.adminInfo = adminInfo;
-    }*/
-
-    public UserDto getUserInfo() {
+    public User getUserInfo() {
         return userInfo;
     }
 
-    public void setUserInfo(UserDto userInfo) {
+    public void setUserInfo(User userInfo) {
         this.userInfo = userInfo;
     }
 
-    @Override
-    public String toString() {
-        return "UserRequest{" +
-               // "adminInfo=" + adminInfo +
-                "userInfo=" + userInfo +
-                '}';
-    }
 }

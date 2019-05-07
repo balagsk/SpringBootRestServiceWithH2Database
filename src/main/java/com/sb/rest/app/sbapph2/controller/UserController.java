@@ -4,17 +4,12 @@ import com.sb.rest.app.sbapph2.consts.Constants;
 import com.sb.rest.app.sbapph2.dao.UserDAO;
 import com.sb.rest.app.sbapph2.model.User;
 import com.sb.rest.app.sbapph2.model.dto.*;
-import com.sb.rest.app.sbapph2.utils.CommonUtils;
 import com.sb.rest.app.sbapph2.utils.StatusCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -37,6 +32,7 @@ public class UserController {
         System.out.println("Controller size : "+userList.size());
         return  userList;
     }
+
     @PostMapping("/userbyid/{id}")
     public ResponseEntity<User> getUserById(@PathVariable(value="id") String userId)
     {
@@ -54,22 +50,21 @@ public class UserController {
     @PostMapping("/createuser")
     public UserResponse createUser(@RequestBody UserRequest userRequest) {
         logger.info("Begin Create user operation ");
-        logger.debug("JSON Request : "+userRequest);
-        UserResponse userResponse=null;
-        System.out.println("Print user request : "+userRequest.toString());
+        logger.debug("Print User Request (userRequest): "+userRequest);
+        logger.debug("Print User Request (userRequest.getUserInfo()): "+userRequest.getUserInfo());
+        logger.debug("Print User Request (userRequest.getUserInfo().toString): "+userRequest.getUserInfo().toString());
         // AdminDTO adminDto=userRequest.getAdminInfo(); //Admin login using AGUID.
-        User userInput=userRequest.getUserInfo();
+        UserResponse userResponse=new UserResponse();
         boolean validAdmin=true;
-        //AdminLogin is success, create new user
         if(validAdmin) {
-            User newUser = userDao.saveUser(userInput); //new User using UserInfo
-            UserDto userDtoInfo=new UserDto(newUser.getAPPID(),newUser.getGROUPID(),newUser.getUSERID());
-            userResponse.setUserDetails(userDtoInfo);
-            userResponse.setStatusDetails(new StatusCode(Constants.OPERATION_SUCCESS,"Created successfully"));   //Enum for status messages
+            User newUser = userDao.saveUser(userRequest.getUserInfo());
+            userResponse.setStatusCode(new StatusCode(Constants.OPERATION_SUCCESS,"Created successfully"));
+            userResponse.setUserInfo(newUser);
         }else{
-            userResponse.setStatusDetails(new StatusCode(Constants.OPERATION_FAILED,"Invalid Admin login, and Failed to create user"));
+            userResponse.setStatusCode(new StatusCode(Constants.OPERATION_FAILED,"Invalid Admin login, and Failed to create user"));
         }
-        //Get Response Code & Fetch it in JSON response
+        logger.info("Printing user response : "+userResponse);
+        logger.info("End of User registration operation.");
         return userResponse;
     }
 
@@ -98,12 +93,12 @@ public class UserController {
         if(updateOldUser==null){
             return ResponseEntity.notFound().build();
         }
-        updateOldUser.setAPPID(userUpdate.getAPPID());
-        updateOldUser.setGROUPID(userUpdate.getGROUPID());
-        updateOldUser.setROLEID(userUpdate.getROLEID());
-        updateOldUser.setADDRESS(userUpdate.getADDRESS());
-        updateOldUser.setEMAIL(userUpdate.getEMAIL());
-        updateOldUser.setMODIFIEDDATE(userUpdate.getMODIFIEDDATE());
+        updateOldUser.setAppId(userUpdate.getAppId());
+        updateOldUser.setGroupId(userUpdate.getGroupId());
+        updateOldUser.setRoleId(userUpdate.getRoleId());
+        updateOldUser.setAddress(userUpdate.getAddress());
+        updateOldUser.setEmail(userUpdate.getEmail());
+        updateOldUser.setModifiedDate(userUpdate.getModifiedDate());
         System.out.println("Updated user details : User ="+userUpdate);
         return ResponseEntity.ok().body(userUpdate);
     }

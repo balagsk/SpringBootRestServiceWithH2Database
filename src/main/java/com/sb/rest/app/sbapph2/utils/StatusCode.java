@@ -2,12 +2,8 @@ package com.sb.rest.app.sbapph2.utils;
 
 public class StatusCode {
 
-
     public String responseCode;
     public String responseMessage;
-    public String getResponseCode() {
-        return responseCode;
-    }
 
     public StatusCode(String responseCode, String responseMessage) {
         this.responseCode = responseCode;
@@ -25,4 +21,9 @@ public class StatusCode {
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
     }
+
+    public String getResponseCode() {   return responseCode;   }
+
+
+
 }

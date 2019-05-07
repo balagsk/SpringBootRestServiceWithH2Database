@@ -8,6 +8,13 @@ public class Constants {
     public static final int APPID_MIN_MAX_LENGTGH=3;
     public static final int USERID_MIN_LENGTGH=6;
 
+    //Role Configuration
+    public static final int GIT_ADMIN_ROLE=1000;
+    public static final int GIT_OPERATOR_ROLE=1001;
+    public static final int GIT_SUPPORT_ROLE=1002;
+    public static final int GIM_ADMIN_ROLE=1000;
+    public static final int GIM_OPERATOR_ROLE=1001;
+    public static final int GIM_SUPPORT_ROLE=1002;
 
     //Response Code
     public static final String OPERATION_SUCCESS="100";
